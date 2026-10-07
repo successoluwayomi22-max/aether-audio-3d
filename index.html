@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOID — Premium Wireless Earbuds</title>
+  <meta name="description" content="VOID wireless earbuds. Custom 11mm titanium driver, hybrid active noise cancellation, and ergonomic liquid silicone seal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <link rel="stylesheet" href="/src/styles/commerce.css">
+</head>
+<body>
+  <!-- Fixed WebGL 3D Canvas Background -->
+  <div id="webgl-container"></div>
+
+  <!-- Ambient Dynamic Gradient Overlay -->
+  <div class="ambient-vignette"></div>
+
+  <!-- Minimal Luxury Navigation -->
+  <header id="main-nav" class="nav-bar">
+    <div class="nav-left">
+      <a href="#" class="brand-logo" id="nav-brand-logo">
+        <span class="logo-text">VOID</span>
+      </a>
+    </div>
+    
+    <nav class="nav-center" aria-label="Product navigation">
+      <a href="#section-1" class="nav-link active" data-target="0">Overview</a>
+      <a href="#section-2" class="nav-link" data-target="0.2">Acoustics</a>
+      <a href="#section-3" class="nav-link" data-target="0.4">Design</a>
+      <a href="#section-4" class="nav-link" data-target="0.6">Noise Control</a>
+      <a href="#section-5" class="nav-link" data-target="0.62">Battery</a>
+      <a href="#section-6" class="nav-link" data-target="0.78">Specs</a>
+      <a href="#section-8" class="nav-link" data-target="1.0">Buy</a>
+    </nav>
+
+    <div class="nav-right">
+      <button type="button" class="nav-icon-btn" id="cart-open-btn" aria-label="Open cart">
+        Cart
+        <span class="cart-badge" data-cart-count hidden>0</span>
+      </button>
+      <a href="#reserve-modal" class="nav-cta-btn" id="nav-reserve-btn">
+        <span>Order Now</span>
+      </a>
+
+      <button class="nav-matrix-menu" id="menu-matrix-btn" aria-label="Open menu options">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Technical HUD 3D-Projected Callouts Overlay -->
+  <div id="hud-overlay" class="hud-layer" aria-hidden="true">
+    <div class="hud-pin pin-1" id="hud-pin-driver">
+      <div class="pin-anchor">
+        <div class="pin-dot"></div>
+        <div class="pin-ring"></div>
+        <svg class="pin-leader" viewBox="0 0 100 40">
+          <polyline points="0,20 40,20 90,5" fill="none" stroke="rgba(163, 180, 159, 0.75)" stroke-width="1.2" />
+        </svg>
+      </div>
+      <div class="pin-card">
+        <span class="pin-tag">DRIVER</span>
+        <span class="pin-title">11 mm Titanium Diaphragm</span>
+        <span class="pin-desc">Custom transducer engineered for sub-bass extension down to 5 Hz.</span>
+      </div>
+    </div>
+
+    <div class="hud-pin pin-2" id="hud-pin-mic">
+      <div class="pin-anchor">
+        <div class="pin-dot"></div>
+        <div class="pin-ring"></div>
+        <svg class="pin-leader" viewBox="0 0 100 40">
+          <polyline points="0,20 40,20 90,5" fill="none" stroke="rgba(163, 180, 159, 0.75)" stroke-width="1.2" />
+        </svg>
+      </div>
+      <div class="pin-card">
+        <span class="pin-tag">MICROPHONES</span>
+        <span class="pin-title">Dual Beamforming Array</span>
+        <span class="pin-desc">Isolates voice acoustics while filtering ambient wind and noise.</span>
+      </div>
+    </div>
+
+    <div class="hud-pin pin-3" id="hud-pin-vent">
+      <div class="pin-anchor">
+        <div class="pin-dot"></div>
+        <div class="pin-ring"></div>
+        <svg class="pin-leader" viewBox="0 0 100 40">
+          <polyline points="0,20 40,20 90,5" fill="none" stroke="rgba(163, 180, 159, 0.75)" stroke-width="1.2" />
+        </svg>
+      </div>
+      <div class="pin-card">
+        <span class="pin-tag">VENTILATION</span>
+        <span class="pin-title">Pressure Equalization Vent</span>
+        <span class="pin-desc">Balances ear canal pressure for comfortable, transparent wear.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Vertical Indicator -->
+  <aside class="scroll-tracker" aria-hidden="true">
+    <div class="tracker-line">
+      <div class="tracker-thumb" id="scroll-thumb"></div>
+    </div>
+    <div class="tracker-counter">
+      <span id="tracker-current">01</span>
+      <span class="tracker-slash">/</span>
+      <span>08</span>
+    </div>
+  </aside>
+
+  <!-- Main Scroll Journey Track -->
+  <main class="story-track" id="story-track">
+
+    <!-- SECTION 1: HERO -->
+    <section class="story-section section-hero is-active" id="section-1" data-section="0">
+      <div class="section-content left-align">
+        <div class="tech-label-header">
+          <span class="tech-code">VOID // GEN 1</span>
+          <span class="tech-divider"></span>
+          <span class="tech-spec">TRUE WIRELESS AUDIO</span>
+        </div>
+        <h1 class="main-headline">
+          Sound without<br>
+          boundaries.
+        </h1>
+        <p class="supporting-copy">
+          Designed from the ground up for acoustic purity. Precision ceramic composite enclosure, custom 11 mm titanium transducer, and hybrid active noise cancellation.
+        </p>
+        <p class="product-price">$249</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-value">5Hz – 40kHz</span>
+            <span class="stat-label">Frequency Response</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">38 Hours</span>
+            <span class="stat-label">Battery with Case</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ACOUSTICS -->
+    <section class="story-section section-breakdown" id="section-2" data-section="1">
+      <div class="section-content left-align">
+        <div class="tech-label-header">
+          <span class="tech-code">TRANSDUCER</span>
+          <span class="tech-divider"></span>
+          <span class="tech-spec">CUSTOM 11MM DRIVER</span>
+        </div>
+        <h2 class="main-headline">
+          Unrivalled<br>
+          audio quality.
+        </h2>
+        <p class="supporting-copy">
+          Inside each earbud sits an ultra-stiff titanium-coated diaphragm powered by high-flux neodymium magnets. The custom acoustic cavity is tuned for deep, controlled bass, a neutral midrange, and smooth, effortless treble.
+        </p>
+        <div class="spec-checklist">
+          <div class="check-item"><span class="check-bullet"></span> Custom 11 mm titanium composite dynamic driver</div>
+          <div class="check-item"><span class="check-bullet"></span> Dedicated rear acoustic chamber for low-frequency control</div>
+          <div class="check-item"><span class="check-bullet"></span> Hi-Res Audio wireless certification with LDAC codec</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ERGONOMICS & DESIGN -->
+    <section class="story-section section-rotation" id="section-3" data-section="2">
+      <div class="section-content left-align">
+        <div class="tech-label-header">
+          <span class="tech-code">CRAFTSMANSHIP</span>
+          <span class="tech-divider"></span>
+          <span class="tech-spec">ERGONOMIC FIT</span>
+        </div>
+        <h2 class="main-headline">
+          Molded for<br>
+          all-day comfort.
+        </h2>
+        <p class="supporting-copy">
+          Refined across thousands of ear scans to sit naturally in the concha. Medical-grade liquid silicone tips provide an airtight acoustic seal with zero pressure buildup, supported by a tactile force sensor stem for intuitive pinch control.
+        </p>
+        <div class="hud-trigger-group">
+          <span class="pulse-indicator"></span>
+          <span class="hud-status-text">EXPLORE INTERNAL ARCHITECTURE</span>
+        </div>
+        <div class="story-photo" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: ACTIVE NOISE CANCELLATION -->
+    <section class="story-section section-anc" id="section-4" data-section="3">
+      <div class="section-content left-align">
+        <div class="tech-label-header">
+          <span class="tech-code">NOISE CONTROL</span>
+          <span class="tech-divider"></span>
+          <span class="tech-spec">HYBRID ACTIVE CANCELLATION</span>
+        </div>
+        <h2 class="main-headline">
+          Silence on<br>
+          demand.
+        </h2>
+        <p class="supporting-copy">
+          Inward and outward-facing microphones continuously monitor external sound, generating an equal inverse waveform to eliminate distractions before you hear them. Switch to Transparency mode with a single pinch to let the outside world in naturally.
+        </p>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="card-num">ACTIVE CANCELLATION</span>
+            <h3 class="card-title">-45 dB Attenuation</h3>
+            <p class="card-desc">Reduces commute rumble, airplane cabin drone, and background office noise.</p>
+          </div>
+          <div class="feature-card">
+            <span class="card-num">TRANSPARENCY</span>
+            <h3 class="card-title">Natural Awareness</h3>
+            <p class="card-desc">Low-latency audio pass-through lets voices and traffic sound natural.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: BATTERY & CHARGING -->
+    <section class="story-section section-battery" id="section-5" data-section="4">
+      <div class="section-content left-align">
+        <div class="tech-label-header">
+          <span class="tech-code">POWER</span>
+          <span class="tech-divider"></span>
+          <span class="tech-spec">ALL-DAY ENDURANCE</span>
+        </div>
+        <h2 class="main-headline">
+          Power for the<br>
+          full journey.
+        </h2>
+        <p class="supporting-copy">
+          Get up to 8 hours of uninterrupted listening on a single charge, and 38 hours total with the compact wireless charging case. Fast charge provides 2 hours of playback from a quick 10-minute top-up.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-value">8 Hours</span>
+            <span class="stat-label">Playback on One Charge</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">10 Min</span>
+            <span class="stat-label">Charge for 2h Playback</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">Qi / USB-C</span>
+            <span class="stat-label">Charging Case</span>
+          </div>
+        </div>
+        <p class="supporting-copy" style="margin-top: 1.4rem;">
+          The pebble case is a wireless charger in your pocket: USB-C, Qi, and a status LED that only speaks when it needs to.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 6: MASTER SPECIFICATIONS & FINALE -->
+    <section class="story-section section-specs" id="section-6" data-section="5">
+      <div class="section-content left-align">
+        <div class="tech-label-header">
+          <span class="tech-code">SPECIFICATIONS</span>
+          <span class="tech-divider"></span>
+          <span class="tech-spec">TECHNICAL OVERVIEW</span>
+        </div>
+        <h2 class="main-headline">
+          Crafted for<br>
+          pure clarity.
+        </h2>
+        <p class="supporting-copy">
+          Every component was chosen with care. From high-grade ceramic composites to precision drivers and multi-point Bluetooth pairing, VOID delivers high-fidelity sound in a pocketable, timeless form.
+        </p>
+        
+        <div class="specs-table-container">
+          <div class="specs-grid">
+            <div class="spec-entry">
+              <span class="spec-name">Transducer</span>
+              <span class="spec-detail">11 mm Titanium Dynamic Driver</span>
+            </div>
+            <div class="spec-entry">
+              <span class="spec-name">Frequency Response</span>
+              <span class="spec-detail">5 Hz – 40,000 Hz</span>
+            </div>
+            <div class="spec-entry">
+              <span class="spec-name">Bluetooth Codecs</span>
+              <span class="spec-detail">LDAC, AAC, SBC (Hi-Res Audio)</span>
+            </div>
+            <div class="spec-entry">
+              <span class="spec-name">Water & Dust Rating</span>
+              <span class="spec-detail">IP54 Water and Sweat Resistant</span>
+            </div>
+            <div class="spec-entry">
+              <span class="spec-name">Battery Life</span>
+              <span class="spec-detail">8h Earbuds / 38h with Case</span>
+            </div>
+            <div class="spec-entry">
+              <span class="spec-name">Connectivity</span>
+              <span class="spec-detail">Bluetooth 5.3 with Multipoint</span>
+            </div>
+            <div class="spec-entry">
+              <span class="spec-name">Pairing</span>
+              <span class="spec-detail">Two devices at once, instant handoff</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="finale-actions" style="margin-top: 2.2rem;">
+          <a href="#reserve-dialog" class="action-btn-primary" id="primary-cta-btn">
+            <span class="btn-text">Order VOID — $249</span>
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <span class="action-footnote">Free worldwide carbon-neutral shipping. 30-day trial with full return guarantee.</span>
+        </div>
+      </div>
+
+      <!-- Bottom Center Minimal Pill CTA Button -->
+      <div class="bottom-center-cta">
+        <button class="pill-cta-btn" id="bottom-pill-cta" aria-label="Configure VOID Earbuds">
+          <span class="pill-dot"></span>
+          <span class="pill-label">Order VOID</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="story-section section-case" id="section-7" data-section="6">
+      <div class="section-content left-align">
+        <div class="tech-label-header">
+          <span class="tech-code">CHARGING CASE</span>
+          <span class="tech-divider"></span>
+          <span class="tech-spec">WIRELESS · USB-C · IP54</span>
+        </div>
+        <h2 class="main-headline">Pocket studio.<br>Always ready.</h2>
+        <p class="supporting-copy">
+          A pebble-shaped wireless charging case holds thirty extra hours. Magnetic wells seat the stems without rattle. IP54 water and sweat resistance on the earbuds keeps commutes and workouts honest.
+        </p>
+        <div class="photo-strip" aria-hidden="true">
+          <div class="photo-panel photo-case"></div>
+          <div class="photo-panel photo-tips"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-section section-connect" id="section-8" data-section="7">
+      <div class="section-content left-align">
+        <div class="tech-label-header">
+          <span class="tech-code">CONNECTIVITY</span>
+          <span class="tech-divider"></span>
+          <span class="tech-spec">BLUETOOTH 5.3 · LDAC</span>
+        </div>
+        <h2 class="main-headline">Switch devices<br>without a ritual.</h2>
+        <p class="supporting-copy">
+          Multipoint keeps your laptop and phone in the same conversation. LDAC, AAC, and SBC cover high-resolution wireless and everyday pairing.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Luxury Brand Footer -->
+  <footer class="footer-section">
+    <div class="footer-brand">
+      VOID AUDIO
+    </div>
+    <div class="footer-links">
+      <a href="#section-1" class="footer-link">Overview</a>
+      <a href="#section-2" class="footer-link">Acoustics</a>
+      <a href="#section-4" class="footer-link">Noise Control</a>
+      <a href="#section-6" class="footer-link">Specifications</a>
+      <a href="#privacy" class="footer-link">Privacy</a>
+    </div>
+    <div class="footer-copyright">
+      &copy; 2026 VOID Audio Inc. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Interactive Modal for Order -->
+  <dialog id="reserve-modal" class="luxury-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close dialog">&times;</button>
+      <div class="modal-header">
+        <span class="modal-tag">VOID WIRELESS</span>
+        <h3 class="modal-title">Order VOID Earbuds</h3>
+        <p class="modal-subtitle">Ships within 24 hours. Includes wireless charging case, 3 ear tip sizes, and USB-C cable.</p>
+      </div>
+      <form class="modal-form" id="reserve-form" onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label for="input-email">EMAIL ADDRESS</label>
+          <input type="email" id="input-email" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="input-finish">COLORWAY</label>
+          <select id="input-finish">
+            <option value="whitesmoke">Ceramic Whitesmoke</option>
+            <option value="matte-charcoal">Matte Charcoal</option>
+            <option value="olive-titanium">Olive Titanium</option>
+          </select>
+        </div>
+        <button type="submit" class="modal-submit-btn" id="submit-reserve-btn">
+          Continue to Checkout — $249
+        </button>
+      </form>
+    </div>
+  </dialog>
+
+  <aside class="product-dock" id="product-dock" aria-label="Product configuration">
+    <div class="dock-header">
+      <p class="dock-kicker">VOID GEN 1</p>
+      <h2 class="dock-title">Wireless Earbuds</h2>
+      <p class="dock-desc">Custom 11 mm titanium driver. Hybrid ANC. Liquid silicone seal.</p>
+      <p class="dock-price">$249</p>
+    </div>
+    <div class="view-toggle" role="group" aria-label="Product view">
+      <button type="button" class="is-selected" data-view-mode="3d">3D</button>
+      <button type="button" data-view-mode="image">Photo</button>
+    </div>
+    <p class="finish-caption">Finish · <span id="selected-finish-label">Ceramic Whitesmoke</span></p>
+    <div class="finish-row" role="list">
+      <button type="button" class="finish-swatch is-selected" data-finish="whitesmoke" aria-pressed="true" aria-label="Ceramic Whitesmoke" style="--swatch:#f4f6f5"></button>
+      <button type="button" class="finish-swatch" data-finish="charcoal" aria-pressed="false" aria-label="Matte Charcoal" style="--swatch:#2c3136"></button>
+      <button type="button" class="finish-swatch" data-finish="olive" aria-pressed="false" aria-label="Olive Titanium" style="--swatch:#8a9580"></button>
+    </div>
+    <dl class="dock-specs">
+      <div><dt>Battery</dt><dd>8 h / 38 h with case</dd></div>
+      <div><dt>ANC</dt><dd>Hybrid, up to −45 dB</dd></div>
+      <div><dt>Connect</dt><dd>Bluetooth 5.3 · LDAC</dd></div>
+    </dl>
+    <div class="qty-row">
+      <button type="button" id="qty-down" aria-label="Decrease quantity">−</button>
+      <input id="qty-input" type="number" min="1" max="9" value="1" inputmode="numeric" aria-label="Quantity">
+      <button type="button" id="qty-up" aria-label="Increase quantity">+</button>
+    </div>
+    <div class="dock-actions">
+      <button type="button" class="btn-primary" id="add-to-cart-btn">Add to Cart</button>
+      <button type="button" class="btn-secondary" id="buy-now-btn">Buy Now</button>
+      <button type="button" class="btn-ghost" id="wishlist-btn" aria-pressed="false">Wishlist</button>
+    </div>
+  </aside>
+
+  <div class="viewer-tools">
+    <button type="button" id="reset-view-btn">Reset view</button>
+    <button type="button" id="inspect-btn">Inspect</button>
+  </div>
+
+  <div id="product-still" class="product-still" aria-hidden="true">
+    <div class="still-frame">
+      <p>Studio still</p>
+      <span>Ceramic enclosure · LSR tip · charging case</span>
+    </div>
+  </div>
+
+  <div id="cart-backdrop" class="cart-backdrop"></div>
+  <aside id="cart-drawer" class="cart-drawer" aria-hidden="true" aria-label="Shopping cart">
+    <header>
+      <h2>Cart</h2>
+      <button type="button" id="cart-close-btn" aria-label="Close cart">×</button>
+    </header>
+    <div id="cart-lines" class="cart-lines"></div>
+    <footer>
+      <div class="summary-row"><span>Subtotal</span><strong data-cart-subtotal>$0</strong></div>
+      <div class="summary-row"><span>Total</span><strong data-cart-subtotal>$0</strong></div>
+      <button type="button" class="btn-primary" id="checkout-open-btn">Proceed to checkout</button>
+      <button type="button" class="btn-ghost" id="continue-shopping-btn">Continue shopping</button>
+    </footer>
+  </aside>
+
+  <div id="checkout-overlay" class="checkout-overlay" aria-hidden="true">
+    <div class="checkout-sheet">
+      <button type="button" class="modal-close" id="checkout-close-btn" aria-label="Close checkout">×</button>
+      <div id="checkout-form-panel">
+        <h2>Checkout</h2>
+        <p class="checkout-note">Review your details. Payment is a placeholder and will not charge a card.</p>
+        <form id="checkout-form">
+          <fieldset>
+            <legend>Customer</legend>
+            <label>Full name<input name="fullName" autocomplete="name" required></label>
+            <p class="field-error" data-error-for="fullName"></p>
+            <label>Email<input name="email" type="email" autocomplete="email" required></label>
+            <p class="field-error" data-error-for="email"></p>
+            <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+            <p class="field-error" data-error-for="phone"></p>
+          </fieldset>
+          <fieldset>
+            <legend>Delivery</legend>
+            <label>Address<input name="address" autocomplete="street-address" required></label>
+            <p class="field-error" data-error-for="address"></p>
+            <label>City<input name="city" autocomplete="address-level2" required></label>
+            <p class="field-error" data-error-for="city"></p>
+            <label>Region<input name="region" autocomplete="address-level1" required></label>
+            <p class="field-error" data-error-for="region"></p>
+            <label>Postal code<input name="postal" autocomplete="postal-code" required></label>
+            <p class="field-error" data-error-for="postal"></p>
+            <label>Country<input name="country" autocomplete="country-name" required></label>
+            <p class="field-error" data-error-for="country"></p>
+          </fieldset>
+          <section class="order-summary">
+            <h3>Order summary</h3>
+            <div id="checkout-summary-lines"></div>
+            <div class="summary-row"><span>Total</span><strong data-cart-subtotal>$0</strong></div>
+          </section>
+          <section class="payment-placeholder">
+            <h3>Payment</h3>
+            <p>No payment is processed in this app. Connect a payment provider here later. Placing an order records your details only.</p>
+          </section>
+          <button type="submit" class="btn-primary">Place order — no charge</button>
+        </form>
+      </div>
+      <div id="checkout-confirm-panel" class="is-hidden">
+        <h2>Order recorded</h2>
+        <p>Reference <strong id="confirm-order-id"></strong></p>
+        <p>Total <strong id="confirm-order-total"></strong></p>
+        <p>Confirmation will go to <strong id="confirm-order-email"></strong></p>
+        <p class="checkout-note">Payment status: not processed. No card was charged.</p>
+        <button type="button" id="checkout-done-btn" class="btn-primary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="mobile-tabbar" aria-label="Mobile">
+    <button type="button" id="mobile-home-btn">Home</button>
+    <button type="button" id="mobile-inspect-btn">Inspect</button>
+    <button type="button" id="mobile-cart-btn">Cart <span data-cart-count hidden>0</span></button>
+  </nav>
+
+  <div id="app-toast" class="app-toast" role="status"></div>
+  <div id="loading-veil" class="loading-veil">VOID</div>
+
+  <!-- Vite Main Script Entrypoint -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
